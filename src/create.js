@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 import { EditorState, convertToRaw, ContentState } from 'draft-js';
 import { WithContext as ReactTags } from 'react-tag-input';
 import { Editor } from 'react-draft-wysiwyg';
-import '../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import './reactTags.css';
 import './index.css';
 import draftToHtml from 'draftjs-to-html';
@@ -27,8 +28,21 @@ class Create extends Component {
           suggestions:  ["mango", "pineapple", "orange", "pear"],
           content: "",
           title: "",
-          editorState: EditorState.createEmpty()
+          editorState: EditorState.createEmpty(),
+          author: "Loading..."
       };
+      firebase.auth().onAuthStateChanged(user => {
+        console.log(user);
+        if (user) {
+          firebase.database().ref("userInfos/"+user.uid).once("value").then( user => {
+            console.log(user.val().username);
+            this.setState({ author:user.val().username });
+          })
+        } else {
+          this.setState({ author:"Loading..."});
+        }
+      });
+      if(firebase.auth().currentUser)
       this.handleDelete = this.handleDelete.bind(this);
       this.handleAddition = this.handleAddition.bind(this);
       this.handleDrag = this.handleDrag.bind(this);
@@ -87,10 +101,13 @@ class Create extends Component {
         tags: parsedTags,
         draft: false
       }
-      firebase.database().ref('books').push(book)
+      firebase.database().ref('books').push(book).then(rsp => {
+        window.location = '/'+rsp.key
+      })
     })
   }
   render() {
+
     const { editorState, tags, suggestions } = this.state;
     return (
       <div className="container">
@@ -99,7 +116,7 @@ class Create extends Component {
         <input className="form-control" type="text" name="title" placeholder="Title" onChange={this.handleTitleChange.bind(this)} value={this.state.title}/>
         </div>
         <div className="form-group">
-        Author: Jon Smith
+        Author: {this.state.author}
         </div>
         <div className="form-group">
         <ReactTags tags={tags}
