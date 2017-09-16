@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import firebase from './firebase.js'
-
+import firebase from './firebase.js';
 import Navbar from './navbar.js'
 import Footer from './footer.js'
+
 
 class App extends Component {
   render() {
@@ -28,7 +28,27 @@ class App extends Component {
       						<p> This is the start of a very cool story. </p>
       					</div>
       					
-      					<div className="row"> </div>
+      					<div className="row carousel slide" data-ride="carousel"> 
+      						<div className="carousel-inner">
+	      						<div className="carousel-item active">
+	      							<p> A few lines. </p>
+	      						</div>
+	      						<div className="carousel-item active">
+	      							<p> A few lines. </p>
+	      						</div>
+	      						<div className="carousel-item active">
+	      							<p> A few lines. </p>
+	      						</div>
+      						</div>
+      						<a class="carousel-control-prev" href="#" role="button" data-slide="prev">
+	  							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+	  							<span class="sr-only">Previous</span>
+							</a>
+							<a class="carousel-control-next" href="#" role="button" data-slide="next">
+								<span class="carousel-control-next-icon" aria-hidden="true"></span>
+								<span class="sr-only">Next</span>
+							</a>
+      					</div>
       				</div>
       			</div>
       		</div>
