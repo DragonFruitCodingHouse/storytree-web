@@ -15,22 +15,17 @@ class Navbar extends Component {
           </a>
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav mr-auto">
-              <li className="nav-item active">
-                <a className="nav-link" href="#">Browse <span className="sr-only">(current)</span></a>
-              </li>
-            </ul>
-          </div>
-
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item active">
                 <a className="nav-link" href="#">Browse <span className="sr-only">(current)</span></a>
               </li>
-              <li className="nav-item active">
+              <li className="nav-item pr-5">
+                <a className="nav-link" href="#">Create a Story</a>
+              </li>
+              <li className="nav-item">
                 <a className="nav-link" href="#">Login</a>
               </li>
-              <li className="nav-item active">
+              <li className="nav-item">
                 <a className="nav-link" href="#">Sign Up</a>
               </li>
             </ul>
