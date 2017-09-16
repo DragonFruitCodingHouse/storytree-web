@@ -4,3 +4,21 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+.home-wrapper {
+  margin-top: 20px !important;
+  display: block !important;
+  height: 400px !important;
+}
+.home-editor {
+  border: 1px solid #F1F1F1 !important;
+  padding: 5px !important;
+  border-radius: 2px !important;
+  height: 80% !important;
+}
+.center-div{
+  margin: 0 auto;
+  width: 80%;
+}
+.space-button-right{
+  float: right;
+}
