@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 import firebase from './firebase.js';
@@ -32,9 +32,11 @@ class BasicExample extends Component {
       <Router>
         <div>
           <Navbar provider={this.state.provider} setUID={this.setUID.bind(this)} />
-          <Route exact path="/" component={Browse}/>
-          <Route path="/book" component={Book}/>
-          <Route path="/create-new-book" component={Create}/>
+          <Switch>
+            <Route exact path="/" component={Browse}/>
+            <Route exact path="/create-new-book" component={Create}/>
+            <Route path="/:id" component={Book}/>
+          </Switch>
         </div>
       </Router>
     )
