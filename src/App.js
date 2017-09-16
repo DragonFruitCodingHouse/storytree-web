@@ -42,55 +42,55 @@ class App extends Component {
 							<button type="button" className="undo btn btn-outline-primary d-inline-block float-right"> Undo </button>
 							
 							<div className="firstCard">
-	      						<p> This is the start of a very cool story. </p>
+	      						<p className="p-5"> This is the start of a very cool story. </p>
 	      					</div>
 							
 	      					<button type="button" className="save btn btn-outline-primary d-inline-block float-left"> Save </button>
 	      					<button type="button" className="add btn btn-outline-primary d-inline-block float-right"> Add </button>
       					</div>
       					
-      					<div className="bg-faded w-100">
+      					<div className="bg-faded w-100 p-5">
 	      					<div className="carousel slide w-75 m-auto" data-ride="carousel" data-interval="false" id="carouselExampleControls"> 
 	      						<div className="carousel-inner w-100" role="listbox">
 		      						<div className="carousel-item active w-100 m-auto">
-		      							<div className="w-75">
+		      							<div className="w-75 mr-2 p-3">
 		      								<p> A few lines. </p>
 		      							</div>
-		      							<div className="w-75">
+		      							<div className="w-75 mr-2 p-3">
 		      								<p> A few lines. </p>
 		      							</div>
-		      							<div className="w-75">
-		      								<p> A few lines. </p>
-		      							</div>
-		      						</div>
-		      						<div className="carousel-item w-100 m-auto">
-		      							<div className="w-75">
-		      								<p> A few lines. </p>
-		      							</div>
-		      							<div className="w-75">
-		      								<p> A few lines. </p>
-		      							</div>
-		      							<div className="w-75">
+		      							<div className="w-75 p-3">
 		      								<p> A few lines. </p>
 		      							</div>
 		      						</div>
 		      						<div className="carousel-item w-100 m-auto">
-		      							<div className="w-75">
+		      							<div className="w-75 mr-2 p-3">
 		      								<p> A few lines. </p>
 		      							</div>
-		      							<div className="w-75">
+		      							<div className="w-75 mr-2 p-3">
 		      								<p> A few lines. </p>
 		      							</div>
-		      							<div className="w-75">
+		      							<div className="w-75 p-3">
+		      								<p> A few lines. </p>
+		      							</div>
+		      						</div>
+		      						<div className="carousel-item w-100 m-auto">
+		      							<div className="w-75 mr-2 p-3">
+		      								<p> A few lines. </p>
+		      							</div>
+		      							<div className="w-75 mr-2 p-3">
+		      								<p> A few lines. </p>
+		      							</div>
+		      							<div className="w-75 p-3">
 		      								<p> A few lines. </p>
 		      							</div>
 		      						</div>
 	      						</div>
-	      						<a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+	      						<a className="carousel-control-prev w-2.5" href="#carouselExampleControls" role="button" data-slide="prev">
 		  							<span className="carousel-control-prev-icon" aria-hidden="true"></span>
 		  							<span className="sr-only">Previous</span>
 								</a>
-								<a className="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+								<a className="carousel-control-next w-2.5" href="#carouselExampleControls" role="button" data-slide="next">
 									<span className="carousel-control-next-icon" aria-hidden="true"></span>
 									<span className="sr-only">Next</span>
 								</a>
