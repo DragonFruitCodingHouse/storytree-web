@@ -92,6 +92,7 @@ class Create extends Component {
     }
     firebase.database().ref('sections').push(sect).then(rsp => {
       var parsedTags = {};
+      firebase.storage().ref().child('sections/'+rsp.key).putString(text)
       this.state.tags.forEach( (tag, index) => {
         parsedTags[tag.text] = true;
       })
