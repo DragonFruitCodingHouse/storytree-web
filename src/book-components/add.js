@@ -17,8 +17,8 @@ class AddSection extends Component {
 	      		editorState,
 		});
 	};
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
 			editorState: EditorState.createEmpty()
 		}
@@ -50,16 +50,44 @@ class AddSection extends Component {
 		
 		this.setState({ tags: tags });
 	}
-
+	publish(event){
+		var text = this.state.editorState.getCurrentContent().getPlainText();
+		var prev = (text.length > 140)? text.substring(0,140): text;
+		var sect = {
+			parent: this.props.sid,
+			preview: prev,
+			score: 0,
+			flag: 0,
+			author: firebase.auth().currentUser.uid,
+			draft:false
+		}
+		firebase.database().ref('sections').push(sect).then(rsp => {
+			var parsedTags = {};
+			firebase.storage().ref().child('sections/'+rsp.key).putString(text)
+			this.cancel()
+				//window.location.reload()
+		})
+	}
+	cancel(event){
+		this.setState({editorState:EditorState.createEmpty()});
+		this.props.cancelHandler();
+	}
 	render() {
 		const { editorState } = this.state;
 		return (
+		<form>
 		<Editor
 			editorState={editorState}
 			wrapperClassName="home-wrapper"
 			editorClassName="home-editor"
 			onEditorStateChange={this.onEditorStateChange}
 		/>
+		<div className="form-group">
+			<input type="button" name="publish" value="Publish" onClick={this.publish.bind(this)}/>
+			<input type="button" name="cancel" value="Cancel" className="space-button-right" onClick={this.cancel.bind(this)}/>
+			<input type="button" name="saveDraft" value="Save Draft" className="space-button-right"/>
+		</div>
+		</form>
 		);
 	}
 }
