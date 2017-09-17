@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "downloadjs": "^1.4.7",
     "draft-js": "^0.10.1",
     "draftjs-to-html": "^0.7.5",
     "html-to-draftjs": "0.1.0-beta15",
