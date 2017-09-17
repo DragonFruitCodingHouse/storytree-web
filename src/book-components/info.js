@@ -8,7 +8,7 @@ class Info extends Component {
 		console.log(props.bookInfo);
 	this.state = props
 	}
-	
+
 	render() {
 		var tags = ""
 		//console.log(this.props)
@@ -19,11 +19,15 @@ class Info extends Component {
 	//	})
 		return (
 			<div className="container">
-				<h1 className="title w-75">{this.props.bookInfo.title}</h1>
-		    	<h3 className="author text-right w-75"> By: {this.props.bookInfo.author}</h3>
-		    	<div className="tags">{tags}</div>
-		    	<div className="bar w-80"></div>
-	    	</div>
+			<div className="row">
+			<div className="col-12">
+				<h1 className="title display-4 text-center mt-5">{this.props.bookInfo.title}</h1>
+		    <h4 className="author text-center mt-3 mb-5"> By: {this.props.bookInfo.author}</h4>
+		    <div className="tags">{tags}</div>
+		    <hr/>
+	    </div>
+			</div>
+			</div>
 		);
 	}
 }

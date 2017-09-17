@@ -44,10 +44,10 @@ class AddSection extends Component {
 
 	handleDrag(tag, currPos, newPos) {
 		let tags = this.state.tags;
-		
+
 		tags.splice(currPos, 1);
 		tags.splice(newPos, 0, tag);
-		
+
 		this.setState({ tags: tags });
 	}
 	publish(event){
@@ -75,6 +75,7 @@ class AddSection extends Component {
 	render() {
 		const { editorState } = this.state;
 		return (
+		<div className="container clearfix">
 		<form>
 		<Editor
 			editorState={editorState}
@@ -82,12 +83,13 @@ class AddSection extends Component {
 			editorClassName="home-editor"
 			onEditorStateChange={this.onEditorStateChange}
 		/>
-		<div className="form-group">
-			<input type="button" name="publish" value="Publish" onClick={this.publish.bind(this)}/>
-			<input type="button" name="cancel" value="Cancel" className="space-button-right" onClick={this.cancel.bind(this)}/>
-			<input type="button" name="saveDraft" value="Save Draft" className="space-button-right"/>
+		<div className="form-group pt-4 pb-5">
+			<input type="button" name="publish" value="Publish" className="btn btn-outline-primary float-left" onClick={this.publish.bind(this)}/>
+			<input type="button" name="cancel" value="Cancel" className="btn btn-outline-primary space-button-right" onClick={this.cancel.bind(this)}/>
+			<input type="button" name="saveDraft" value="Save Draft" className=" btn btn-outline-primary space-button-right mr-3"/>
 		</div>
 		</form>
+		</div>
 		);
 	}
 }

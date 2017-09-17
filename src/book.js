@@ -49,7 +49,7 @@ class Book extends Component {
 
   }
   selectSection(newSid){
-	console.log(newSid)  	
+	console.log(newSid)
 	this.state.sections.push( <Expanded sid={newSid} section={this.state.sections.length+1}/>)
 	this.setState({currSID:newSid})
 	this.forceUpdate()
@@ -61,10 +61,10 @@ class Book extends Component {
 	 var bot = (this.state.mode === "read")? (<Branched selectHandler={this.selectSection.bind(this)} addHandler={this.addSection.bind(this)} sid={this.state.currSID} bookInfo={this.state}/>) : (<AddSection sid={this.state.currSID} bookInfo={this.state} cancelHandler={this.cancelAdd.bind(this)}/>)
     return (
       <div className="App">
-      	<Info bookInfo={this.state}/>
-		{this.state.sections}
-	  	{bot}
-	  	<Footer/>
+        <Info bookInfo={this.state}/>
+		    {this.state.sections}
+	  	  {bot}
+	  	  <Footer/>
       </div>
     );
   }

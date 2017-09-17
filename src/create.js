@@ -109,7 +109,7 @@ class Create extends Component {
       })
     })
   }
-  
+
   render() {
 
     const { editorState, tags, suggestions } = this.state;
@@ -140,9 +140,9 @@ class Create extends Component {
 	          </div>
 	          <div className="form-group">
 	        <div>
-	          <input type="button" name="publish" value="Publish" onClick={this.publish}/>
-	          <Link to="/"><input type="button" name="cancel" value="Cancel" className="space-button-right"/></Link>
-	          <input type="button" name="saveDraft" value="Save Draft" className="space-button-right mr-3"/>
+	          <input className="btn btn-outline-primary" type="button" name="publish" value="Publish" onClick={this.publish}/>
+	          <Link to="/"><input type="button" name="cancel" value="Cancel" className="space-button-right btn btn-outline-primary"/></Link>
+	          <input type="button" name="saveDraft" value="Save Draft" className="space-button-right mr-3 btn btn-outline-primary"/>
 	        </div>
 	        </div>
 	        </form>

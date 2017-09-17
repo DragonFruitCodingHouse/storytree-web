@@ -22,14 +22,18 @@ class GridComponent extends Component {
 		e.preventDefault();
 		return false;
 
-	}	
+	}
 	render() {
 		return (
-			<a href="" onClick={this.clickHandler.bind(this)}><div className="contain">
-				<p className="w-100 h-100">{this.state.preview}</p>
-				<button type="button" className="flag flag2 btn btn-outline-primary d-inline-block float-right"> Flag </button>
-				<button type="button" className="score score2 btn btn-outline-primary d-inline-block float-right"> Score {this.state.score} </button>
-			</div> </a>
+			<a className="contain" href="" onClick={this.clickHandler.bind(this)}>
+				<div className="branch p-3">
+					<p className="lead w-100 h-100">{this.state.preview}</p>
+					<div className="ratings m-2">
+						<img className="imgHover mr-4" height="23" width="20" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Arrow_full_up.svg/2000px-Arrow_full_up.svg.png" />
+						<img className="imgHover" height="22" width="20" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Simpleicons_Places_flag-map-marker.svg/2000px-Simpleicons_Places_flag-map-marker.svg.png" />
+					</div>
+				</div>
+			</a>
 		);
 	}
 }

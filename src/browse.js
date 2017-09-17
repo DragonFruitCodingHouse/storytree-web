@@ -12,11 +12,11 @@ class Browse extends Component {
       searchQuery: "",
       title: 'Recommended Stories'
     }
-    
+
     this.handleUserInput = this.handleUserInput.bind(this);
-    
+
     this.handleSubmit = this.handleSubmit.bind(this);
-    
+
     var database = firebase.database().ref('books');
     database.once('value').then(snapshot => {
       snapshot.forEach(childSnapshot => {
@@ -25,28 +25,28 @@ class Browse extends Component {
       });
     });
   }
-  
+
   handleUserInput(e) {
 	  this.setState({
 		  searchQuery: e.target.value
 	  });
   }
-  
+
   handleSubmit(event) {
 	event.preventDefault();
-	
+
 	var query = this.state.searchQuery;
 	this.setState({
 		title: 'Searched for "' + query + '"'
 	})
-	
+
 	this.state.poppedbids.forEach(bid => {
 		this.state.bids.push(bid);
 		this.state.poppedbids.pop(bid);
 	});
 	this.state.bids.forEach(bid => {
 		firebase.database().ref('books/'+bid).once('value').then(snapshot => {
-			
+
 	        var book = snapshot.val();
 	        var title = book.title;
 	        if(title.substr(0, query.length) != query) {
@@ -56,7 +56,7 @@ class Browse extends Component {
 	        this.forceUpdate();
 		});
 	});
-	
+
   }
 
   render() {
@@ -71,7 +71,7 @@ class Browse extends Component {
     return (
 	    <div className="homecontain">
 	    	<div className="banner">
-	    		<div className="row">
+	    		<div className="row align-items-center h-100">
 	    			  <div className="col-md-4 offset-md-4 text-center justify-content-center align-items-center d-flex">
 					  	<form onSubmit={this.handleSubmit} className="w-100">
 						  	<div className="form-group d-inline-flex w-100 justify-content-center">

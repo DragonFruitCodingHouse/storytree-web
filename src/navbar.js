@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import firebase from './firebase.js';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import Browse from './browse.js';
 import "./App.css";
 
 class Navbar extends Component {
@@ -57,6 +58,10 @@ class Navbar extends Component {
   }
 
   render() {
+    var createAStory = '';
+    if(this.state.uid != null) {
+      createAStory = 'Create a Story';
+    }
     return (
       <div className="Navbar">
         <nav className="storytreenav navbar navbar-toggleable-md navbar-light bg-faded">
@@ -64,10 +69,10 @@ class Navbar extends Component {
             <span className="navbar-toggler-icon"></span>
           </button>
 
-          <a className="navbar-brand" href="#">
+          <Link to="/" className="navbar-brand">
             <img src="https://dragonfruitcode.com/images/storytree.png" width="50" height="50" alt="Three circular nodes, with the top node connected to the bottom two." className="mr-3 ml-2"/>
 			StoryTree
-          </a>
+          </Link>
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ml-auto">
@@ -78,7 +83,7 @@ class Navbar extends Component {
               </li>
               <li className="nav-item pr-5">
                 <Link to="/create-new-book" className="nav-link">
-                  Create a Story
+                  {createAStory}
                 </Link>
               </li>
               <li className="nav-item">

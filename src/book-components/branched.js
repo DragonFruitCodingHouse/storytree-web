@@ -71,27 +71,35 @@ class Branched extends Component {
 		}
 		comps.push(<div className="carousel-item active w-100 m-auto">{tmp}</div>);
 		return (
-			<div className="container w-100 p-0 m-0">
-				<div className="row w-100 p-0 m-0">
-					<div className="col-12 w-100 p-0 pb-5 m-0">
-						<div className="dropdown">
-							<button type="button" className="sort btn btn-outline-primary dropdown-toggle float-left" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Sort By </button>
-							<div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							  	<a className="dropdown-item" href="#lol">Highest Score</a>
-								<a className="dropdown-item" href="#lol">Lowest Score</a>
-								<a className="dropdown-item" href="#lol">Newest</a>
-								<a className="dropdown-item" href="#lol">Oldest</a>
+			<div className="container">
+				<div className="row">
+					<div className="col-12">
+						<div className="row">
+							<div className="col-md-2 text-left">
+								<div className="dropdown">
+									<button type="button" className="sort btn btn-outline-primary dropdown-toggle float-left" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Sort By </button>
+									<div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+											<a className="dropdown-item" href="#lol">Highest Score</a>
+										<a className="dropdown-item" href="#lol">Lowest Score</a>
+										<a className="dropdown-item" href="#lol">Newest</a>
+										<a className="dropdown-item" href="#lol">Oldest</a>
+									</div>
+								</div>
+							</div>
+							<div className="col-md-8 text-center">
+								<h4 className="sect"> Section # </h4>
+							</div>
+							<div className="col-md-2 text-right">
+								<img className="imgHover m-2 add-icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Grey_close_x.svg/1000px-Grey_close_x.svg.png" height="25" width="25" onClick={this.props.addHandler} />
 							</div>
 						</div>
-						<button type="button" className="add btn btn-outline-primary d-inline-block float-right" onClick={this.props.addHandler} > + </button>
-						<p className="sect"> Section # </p>				
-						
+
 						<div className="carouselcontain w-100">
 							<div className="carousel slide w-80 m-auto" data-ride="carousel" data-interval="false" id="carouselExampleControls">
 						    	<div className="carousel-inner w-100" role="listbox">
 							{comps}
 						      	</div>
-						      		
+
 						      	<a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
 							  		<span className="carousel-control-prev-icon" aria-hidden="true"></span>
 							  		<span className="sr-only">Previous</span>
