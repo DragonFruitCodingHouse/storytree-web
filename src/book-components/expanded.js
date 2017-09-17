@@ -6,14 +6,27 @@ class Expanded extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			text:""
+			text:"",
+			retrieved:false
 		}
-		firebase.storage().ref().child("sections/"+this.props.sid);
 	}
-	
 	/* Insert Function to get Section # */
 	
 	render() {
+		 var overflowStyle = { overflow: 'overlay'}
+		if(!this.state.retrieved && this.props.sid) {
+			this.state.retrieved = true;
+			
+			firebase.storage().ref().child("sections/"+this.props.sid).getDownloadURL().then( url => {
+				var xhr = new XMLHttpRequest();
+				xhr.responseType = 'text';
+				xhr.onload = (event) => {
+					this.setState({text:xhr.response});
+				};
+				xhr.open('GET', url);
+				xhr.send();
+			})
+		}
 		return (
 			<div className="container w-100 p-0 m-0">
 				<div className="row w-100 p-0 m-0">
@@ -24,7 +37,7 @@ class Expanded extends Component {
 				
 						<div className="text clearfix">
 							<button type="button" className="fullscreen btn btn-outline-primary d-inline-block float-right"> Full Screen </button>
-							<p className="m-auto p-5">this.state.text</p>
+							<p style={overflowStyle} className="m-auto p-5">{this.state.text}</p>
 							<button type="button" className="flag btn btn-outline-primary d-inline-block float-right"> Flag </button>
 							<button type="button" className="score btn btn-outline-primary d-inline-block float-right"> Score 500 </button>
 						</div>
