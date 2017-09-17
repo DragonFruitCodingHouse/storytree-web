@@ -1,0 +1,108 @@
+.container {
+	height: 475px;
+	text-align: center;
+}
+
+.row, .col-12 {
+	height: 100%;
+}
+
+.text, .carouselcontain {
+	height: 90%;
+	position: relative;
+	font-size: 1.25em;
+	overflow: scroll;
+	padding-top: 0.3em;
+	padding-bottom: 0.3em;
+}
+
+.text p, .carousel {
+	height: 75%;
+	width: 80%;
+	background-color: #e3e3e5;
+	border-radius: 10px;
+}
+
+.save, .sort, .dropdown-menu {
+	margin-left: 10%;
+}
+
+.dropdown-menu {
+	margin-top: 2%;
+}
+
+.x, .fullscreen, .flag, .add {
+	margin-right: 10%;
+}
+
+.fullscreen {
+	position: absolute;
+	top: 1;
+	right: 0;
+}
+
+.title {
+	font-size: 5em;
+	margin: auto;
+	padding-top: 2em;
+}
+
+.author {
+	margin: auto;
+	margin-top: 1em;
+}
+
+.bar {
+	height: 5px;
+	background-color: #818184;
+}
+
+.tags {
+	margin-top: 5em;
+}
+
+.sect {
+	position: absolute;
+	left: 0;
+	right: 0;
+}
+
+.down-icon {
+	background-image : url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='red' viewBox='0 0 8 8'%3E%3Cpath d='M1.5 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+	transform: rotate(90deg);
+}
+
+.carousel {
+	height: 100%;
+}
+
+.carousel-inner {
+	height: 100%;
+}
+
+.carousel-item {
+	margin: auto;
+	height: 80%;
+	padding-top: 3.5em;
+}
+
+.carousel-grid {
+	padding: 0.5em;
+}
+
+.contain {
+	height: 100%;
+}
+
+.contain p {
+	border: 0;
+	height: 100%;
+}
+
+.flag2, .score2 {
+	margin: 0;
+}
+
+.carousel-control-next, .carousel-control-prev {
+	width: 5%;
+}
