@@ -10,6 +10,8 @@ import draftToHtml from 'draftjs-to-html';
 import htmlToDraft from 'html-to-draftjs';
 import firebase from './firebase.js';
 import Footer from './footer.js';
+import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
+import Browse from './browse.js';
 
 class Create extends Component {
   state = {
@@ -106,42 +108,45 @@ class Create extends Component {
       })
     })
   }
+  
   render() {
 
     const { editorState, tags, suggestions } = this.state;
     return (
-      <div className="container">
-      <form className="col-lg-10 center-div">
-      <div className="form-group">
-        <input className="form-control" type="text" name="title" placeholder="Title" onChange={this.handleTitleChange.bind(this)} value={this.state.title}/>
-        </div>
-        <div className="form-group">
-        Author: {this.state.author}
-        </div>
-        <div className="form-group">
-        <ReactTags tags={tags}
-                    suggestions={suggestions}
-                    handleDelete={this.handleDelete}
-                    handleAddition={this.handleAddition}
-                    handleDrag={this.handleDrag} />
-        </div>
-        <div className="form-group">
-          <Editor
-            editorState={editorState}
-            wrapperClassName="home-wrapper"
-            editorClassName="home-editor"
-            onEditorStateChange={this.onEditorStateChange}
-          />
-          </div>
-          <div className="form-group">
-        <div>
-          <input type="button" name="publish" value="Publish" onClick={this.publish}/>
-          <input type="button" name="cancel" value="Cancel" className="space-button-right"/>
-          <input type="button" name="saveDraft" value="Save Draft" className="space-button-right"/>
-        </div>
-        </div>
-        </form>
-        <Footer/>
+	    <div className="newStories mt-5">
+	      <div className="container mb-5">
+	      <form className="col-lg-10 center-div">
+	      <div className="form-group">
+	        <input className="form-control" type="text" name="title" placeholder="Title" onChange={this.handleTitleChange.bind(this)} value={this.state.title}/>
+	        </div>
+	        <div className="form-group">
+	        Author: {this.state.author}
+	        </div>
+	        <div className="form-group">
+	        <ReactTags tags={tags}
+	                    suggestions={suggestions}
+	                    handleDelete={this.handleDelete}
+	                    handleAddition={this.handleAddition}
+	                    handleDrag={this.handleDrag} />
+	        </div>
+	        <div className="form-group">
+	          <Editor
+	            editorState={editorState}
+	            wrapperClassName="home-wrapper"
+	            editorClassName="home-editor"
+	            onEditorStateChange={this.onEditorStateChange}
+	          />
+	          </div>
+	          <div className="form-group">
+	        <div>
+	          <input type="button" name="publish" value="Publish" onClick={this.publish}/>
+	          <Link to="/"><input type="button" name="cancel" value="Cancel" className="space-button-right"/></Link>
+	          <input type="button" name="saveDraft" value="Save Draft" className="space-button-right mr-3"/>
+	        </div>
+	        </div>
+	        </form>
+	      </div>
+	       <Footer/>
       </div>
     )
   }

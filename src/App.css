@@ -2,6 +2,19 @@
   text-align: center;
 }
 
+.storytreenav {
+	height: 100px;
+}
+
+.storytreenav > * {
+	font-size: 1.4em;
+}
+
+.navbar-brand {
+	font-size: 2em;
+	font-weight: 400;
+}
+
 .carousel-item div {
 	border: solid black 2px;
 }

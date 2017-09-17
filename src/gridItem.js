@@ -44,12 +44,17 @@ class GridItem extends Component {
 
   render() {
     return(
-      <Link to={this.props.bid}><div>
-        <h4>{this.state.title}</h4>
-        <p>{this.state.author}</p>
-        <p>{this.state.preview}</p>
-      </div>
-      </Link>
+       	<div className="gridItemContain col-12 col-md-3 h-auto">
+       		<Link to={this.props.bid} className="booklink">
+
+	      		<div className="gridItem bg-inverse text-white">
+		        	<h4>{this.state.title}</h4>
+					<p>{this.state.author}</p>
+					<p>{this.state.preview}</p>
+				</div>
+			
+			</Link>
+		</div>
     )
   }
 }

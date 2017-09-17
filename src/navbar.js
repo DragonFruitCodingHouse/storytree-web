@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import firebase from './firebase.js';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import "./App.css";
 
 class Navbar extends Component {
   constructor(props) {
@@ -58,14 +59,14 @@ class Navbar extends Component {
   render() {
     return (
       <div className="Navbar">
-        <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
+        <nav className="storytreenav navbar navbar-toggleable-md navbar-light bg-faded">
           <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
 
           <a className="navbar-brand" href="#">
-            <img src="" width="30" height="30" alt=""/>
-            Story Tree
+            <img src="https://dragonfruitcode.com/images/storytree.png" width="50" height="50" alt="Three circular nodes, with the top node connected to the bottom two." className="mr-3 ml-2"/>
+			StoryTree
           </a>
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
